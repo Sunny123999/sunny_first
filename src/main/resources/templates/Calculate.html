@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单计算器</title>
+</head>
+<body>
+<p>简单计算器</p>
+<table border="1" style="position: center">
+    <tr>
+        <td>第一个数：</td>
+        <td><input type="text" id="first"></td>
+    </tr>
+    <tr>
+        <td>第二个数：</td>
+        <td><input type="text" id="second"></td>
+    </tr>
+    <tr>
+        <td>运算符：</td>
+        <td>
+            <select id="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>结果：</td>
+        <td><input type="text" id="result"></td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="button" value="计算" onclick="calculate()"></td>
+    </tr>
+</table>
+<script>
+    function calculate() {
+        var first = document.getElementById("first").value;
+        var second = document.getElementById("second").value;
+        var operator = document.getElementById("operator").value;
+        var result = 0;
+        switch (operator) {//parseInt()将字符串转换为整数
+            case "+":
+                result = parseInt(first) + parseInt(second);
+                break;
+            case "-":
+                result = parseInt(first) - parseInt(second);
+                break;
+            case "*":
+                result = parseInt(first) * parseInt(second);
+                break;
+            case "/":
+                result = parseInt(first) / parseInt(second);
+                break;
+        }
+        document.getElementById("result").value = result;
+    }
+</script>
+</body>
+</html>

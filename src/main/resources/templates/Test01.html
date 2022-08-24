@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Test01</title>
+</head>
+<body>
+<h1>JavaScript</h1>
+<p id="demo1">JavaScript能改变HTML元素的内容，样式</p>
+<p id="demo7"></p>
+<p id="demo8"></p>
+<p id="demo9"></p>
+<p id="demo10"></p>
+<p id="demo11"></p>
+<p id="demo15"></p>
+<p id="demo17"></p>
+<p id="demo20"></p>
+<p id="demo21"></p>
+<p id="demo22"></p>
+<script>
+    function MyFunction1() {//改变元素的内容
+        const x = document.getElementById("demo1");
+        x.innerHTML = "Hello World!";
+        x.style.color = "red";
+    }
+
+    function MyFunction2() {//判断输入框的内容是否为数字
+        const y = document.getElementById("demo2").value;
+        if (y == "" || isNaN(y)) {//判断是否为空或者不是数字
+            alert("输入的不是数字！");
+        } else {
+            alert("输入的是数字:" + y);
+        }
+    }
+
+    // window.alert("Hello World!");
+    function MyFunction3() {
+        document.write(Date());
+    }
+
+    function MyFunction4() {
+        a = 5;
+        b = 6;
+        c = a + b;
+        console.log(c);
+    }
+
+    //为变量赋值为空
+    function MyFunction5() {
+        //     var a ;
+        //     console.log(a);
+        var name = "Mike";
+        // $('#name').val('');
+        name = "John";
+        console.log(name);
+    }
+
+    function MyFunction6() {
+        console.log(12 + "Jake");
+    }
+
+    function MyFunction7(x, y) {
+        return x * y;
+        console.log(x * y);
+    }
+
+    //实现计算功能
+    function MyFunction8() {
+        var x = document.getElementById("demo3").value;
+        var y = document.getElementById("demo4").value;
+        var z = document.getElementById("demo5").value;
+        var result = MyFunction7(x, y);
+        document.getElementById("demo5").value = result;
+    }
+
+    <!--document.write("您的浏览器支持JavaScript脚本！")-->
+    var pi = 3.1415926;
+    var name = "Mike";
+    var age = 18;
+    document.write("我叫" + name + "，今年" + age + "岁。");
+    document.write(pi + "<br>");
+
+    function MyFunction9() {
+        var carname = "奔驰";
+        document.getElementById("demo6").innerHTML = "我的车是" + carname + "。";
+    }
+
+    var person = {
+        firstname: "John",
+        lastname: "Doe",
+        age: 50,
+        id: 5566,
+        fullName: function () {
+            return this.firstname + " " + this.lastname;
+        }
+    };
+    //document.write(person.firstname + " " + person.lastname + " " + person.age + " " + person.id);
+    document.getElementById("demo7").innerHTML = person.firstname + " " + person.lastname + " " + person.age + " " + person.id;
+    document.getElementById("demo8").innerHTML = person.fullName();
+    document.getElementById("demo9").innerHTML = person.fullName;
+    /*
+       6:30-7:25      |       2:00-2:45      |      6:30-7:40
+                      |       3:00-3:45      |      7:50-8:50
+       7:35-8:20      |                      |
+       8:30-9:15      |       3:55-4:40      |      9:00-9:50
+                      |                      |
+       9:40-10:25     |                      |
+       10:40-11:25    |       5:15-6:00      |
+     */
+    function MyFunction10(a,b) {
+       return a+b;
+    }
+    document.getElementById("demo10").innerHTML = MyFunction10(6,7);
+    function MyFunction11() {
+        txt1 = "What is your name?";
+        txt2 = "What is your age?";
+        txt3 = txt1+ " " + txt2;
+        document.getElementById("demo11").innerHTML = txt3;
+    }
+    function MyFunction12(){
+        var x;
+        var day = new Date().getDay();
+        switch (day){
+            case 0:x="星期天";break;
+            case 1:x="星期一";break;
+            case 2:x="星期二";break;
+            case 3:x="星期三";break;
+            case 4:x="星期四";break;
+            case 5:x="星期五";break;
+            case 6:x="星期六";break;
+        }
+        document.getElementById("demo12").innerHTML = x;
+    }
+    carname = ["奔驰","宝马","奥迪","大众","马自达","别克","本田","日产","沃尔沃","现代","雪佛兰","捷豹","路虎","沃尔沃","现代","雪佛兰","捷豹","路虎"];
+    for (var i = 0; i < carname.length; i++) {
+        document.write(carname[i]+" ");
+    }
+    function MyFunction13(){
+        var x = "",i = 0;
+        while (i<5){
+            x += "<br>The number is " + i;
+            i++;
+        }
+        document.getElementById("demo13").innerHTML = x;
+    }
+    function MyFunction14(){
+        var x = "",i = 0;
+        for ( i = 0;i < 5;i++){
+            if (i == 3){
+                continue;
+            }
+            x = x + "该数字是：" + i + "<br>";
+        }
+         document.getElementById("demo14").innerHTML = x;
+    }
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo15").innerHTML = isArray(fruits);
+    function isArray(obj) {
+      return obj.constructor.toString().indexOf("Array") > -1;
+    }
+    function MyFunction16(){
+        var str = "Welcome to My Channel";
+        var n = str.search("Channel");
+        document.getElementById("demo16").innerHTML = n;
+    }
+    var txt = "";
+    function MyFunction17(){
+        try{
+            adddlert("Welcome to My Channel");
+        }catch (err){
+            txt = "本页有一个错误，错误信息：" + err.description+"\n\n";
+            txt+= "错误描述："+err.message+"\n\n";
+            txt+= "点击确定继续。\n\n";
+            alert(txt);
+        }
+    }
+    a = 5;
+    b = 6;
+    c = a+b;
+    console.log(c);
+    var x = 15*5;
+    debugger;
+    document.getElementById("demo17").innerHTML = x;
+    function validateForm(){
+        var x = document.forms["myForm"]["fname"].value;
+        if (x==null||x==""){
+            alert("需要输入名字!!");
+            return false;
+        }
+    }
+    function MyFunction18(){
+        var x,text;
+        //获取 id="numb"的值
+        x = document.getElementById("numb").value;
+        if (isNaN(x)||x<1||x>10){
+            text = "输入错误！";
+        }else {
+            text = "输入正确！";
+        }
+        document.getElementById("demo18").innerHTML = text;
+    }
+    function validateEmail(){
+        var x = document.forms["myForm2"]["email"].value;
+        var atpos = x.indexOf("@");
+        var dotpos = x.lastIndexOf(".");
+        if (atpos<1||dotpos<dotpos+2||dotpos+2>=x.length){
+            alert("不是一个有效的e-mail地址");
+            return false;
+        }
+    }
+    function MyFunction19(){
+        var txt = "";
+        var inpObj = document.getElementById("id1");
+        if (!isNumeric(inpObj.value)){
+            txt = "你输入的不是数字！"
+        }else if(inpObj.validity.rangeUnderflow){
+            txt = "输入的值太小了！"
+        }else {
+            txt = "输入正确！"
+        }
+        document.getElementById("demo19").innerHTML = txt;
+    }
+    (function () {
+        document.getElementById("demo20").innerHTML = "Hello!";
+    })();
+    const x = (x,y) => x*y;
+    document.getElementById("demo21").innerHTML = x(5,5);
+    g = findMax(1,123,232,455,12,33);
+    function findMax(){
+        var i,max = arguments[0];
+        if(arguments.length<2){
+            return max;
+        }
+        for (i=0;i<arguments.length;i++){
+            if (arguments[i]>max){
+                max = arguments[i];
+            }
+        }
+        return max;
+    }
+    document.getElementById("demo22").innerHTML = g;
+    var add = (function (){
+        var counter = 0;
+        return function (){return counter +=1;}
+    })();
+    function MyFunction23(){
+        document.getElementById("demo23").innerHTML = add();
+    }
+</script>
+
+<button type="button" onclick="MyFunction1()">点击改变1</button>
+<br>
+<input id="demo2" type="text">
+<button type="button" onclick="MyFunction2()">点击判断2</button>
+<br>
+<button type="button" onclick="MyFunction3()">点击提示3</button>
+<button type="button" onclick="MyFunction4()">点击计算4</button>
+<button type="button" onclick="MyFunction5()">点击赋值5</button>
+<button type="button" onclick="MyFunction6()">点击计算6</button>
+</br>
+<!-- 实现计算功能-->
+<h5>乘法计算机</h5>
+<input id="demo3" type="text">
+<input id="demo4" type="text">
+<input id="demo5" type="text">
+<button type="button" onclick="MyFunction8()">点击计算8</button>
+</br>
+<button type="button" onclick="MyFunction7(2,3)">点击计算7</button>
+<button type="button" onclick="MyFunction9()">点击计算9</button>
+<p id="demo6"></p>
+<!--<button type="button" onclick="Myfunction10()">点击计算10</button>-->
+<button type="button" onclick="MyFunction11()">点击计算11</button>
+<p id="demo12"></p>
+<button type="button" onclick="MyFunction12()">点击计算12</button>
+<p id="demo13"></p>
+<button type="button" onclick="MyFunction13()">点击计算13</button>
+<p id="demo14"></p>
+<button type="button" onclick="MyFunction14()">点击计算14</button>
+<p id="demo16"></p>
+<button type="button" onclick="MyFunction16()">点击计算16</button>
+<input type="button" value="查看消息" onclick="MyFunction17()"/>
+<form name="myForm" action="demo_form.php" onsubmit="return validateForm()" method="post">名字：
+    <input type="text" name="fname">
+    <input type="submit" value="提交">
+</form>
+<p>请输入1-10之间的数字:</p>
+<input id="numb">
+<button type="button" onclick="MyFunction18()">提交</button>
+<p id="demo18"></p>
+<form name="myForm2" action="demo-form.php" onsubmit="return validateEmail();" method="post">
+    Email:<input type="text" name="email">
+    <input type="submit" value="提交">
+</form>
+<p>输入数字并点击验证按钮:</p>
+<input id="id1" type="number" min="100" required>
+<button onclick="MyFunction19()">验证</button>
+<p>如果输入的数字小于100（input的min属性），会显示错误信息</p>
+<p id="demo19"></p>
+<p>局部计数器</p>
+<button type="button" onclick="MyFunction23()">计数！</button>
+<p id="demo23"></p>
+</body>
+</html>

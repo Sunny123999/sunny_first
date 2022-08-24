@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Test03</title>
+</head>
+<style>
+    div{
+        background-color: coral;
+        border: 1px solid;
+        padding: 50px;
+    }
+</style>
+<body>
+<h1 id="id01">我的标题</h1>
+<h2 onclick="this.innerHTML='Ooops!'">点击文本</h2>
+<button type="button" onclick="document.getElementById('id01').style.color='red'">点我！！</button>
+<button type="button" onclick="displayDate()">点击这里，显示是时间！</button>
+<p id="demo01"></p>
+<p id="demo02"></p>
+<button id="myGG">点我产生多事件</button>
+<p id="demo03"></p>
+<p>Hello</p>
+<p>JAVA</p>
+输入英文字母，离开输入框后，小写字母变大写:<input type="text" id="fname" onchange="MyFunction01()">
+<div onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color:#D94A38;width:120px;height:20px;padding:40px;">
+    Mousr Over Me!
+</div>
+<button id="myBtn">点我，弹出警告</button>
+<div id="myDiv">
+    <p id="myP">点击段落，我是冒泡</p>
+</div>
+<div id="myDiv2">
+    <p id="myP2">点击段落，我是捕获</p>
+</div>
+<p>Hello Mike!!</p>
+<p>Hello Jake!!</p>
+<p id="demo04"></p>
+<button type="button" onclick="MyFunction05()">点击修改所有p标签的颜色</button>
+<p id="demo05">单击创建一个数组，调用ucase（）方法，并显示结果</p>
+<button type="button" onclick="MyFunction06()">点我</button>
+<script>
+    document.write(Date());
+    class School {
+        constructor(name, buildYear) {
+            this.name = name;
+            this.buildYear = buildYear;
+        }
+        age() {
+            let date = new Date();
+            return date.getFullYear() - this.buildYear;
+        }
+    }
+    let school = new School("xx大学", 2000);
+    document.getElementById("demo01").innerHTML = "xx大学" + school.age() + "岁了！"
+    function displayDate(){
+        document.getElementById("demo02").innerHTML = Date();
+    }
+    function MyFunction01(){
+        var x = document.getElementById("fname");
+        x.value = x.value.toUpperCase();
+    }
+    function mOver(obj){
+        obj.innerHTML = "Thank You!!"
+    }
+    function mOut(obj){
+        obj.innerHTML = "Mouse Over Me!!"
+    }
+    document.getElementById("myBtn").addEventListener("click",function (){
+        alert("Hello World!");
+    })
+    var x = document.getElementById("myGG");
+    x.addEventListener("mouseover",MyFunction02);
+    x.addEventListener("click",MyFunction03);
+    x.addEventListener("mouseout",MyFunction04);
+    function MyFunction02(){
+        document.getElementById("demo03").innerHTML += "Moused over!!<br>"
+    }function MyFunction03(){
+        document.getElementById("demo03").innerHTML += "Clicked!!<br>"
+    }function MyFunction04(){
+        document.getElementById("demo03").innerHTML += "Moused out!!<br>"
+
+    }
+    document.getElementById("myP").addEventListener("click",function (){
+        alert("你点击了P元素！")
+    },false);
+    document.getElementById("myDiv").addEventListener("click",function () {
+        alert("你点击了DIV元素！")
+    },false);
+    document.getElementById("myP2").addEventListener("click",function (){
+        alert("你点击了P2元素！")
+    },true);
+    document.getElementById("myDiv2").addEventListener("click",function (){
+        alert("你点击了DIV2元素！");
+    },true);
+    var myCollection = document.getElementsByTagName("p");
+    document.getElementById("demo04").innerHTML = "第二个段落的内容为:<span style='color:red;'> " + myCollection[1].innerHTML + '</span>';
+    document.getElementById("demo04").innerHTML = "文档包含"+myCollection.length+"个段落";
+    function MyFunction05(){
+        //var myCollection = document.getElementsByTagName("p");
+        var i ;
+        for (i = 0;i<myCollection.length;i++){
+            myCollection[i].style.color = "red";
+        }
+    }
+    var txt = "sadadsasdasdasdasd423sdfdasdsadas";
+    document.write(txt.length);
+    Array.prototype.myUcase = function (){
+        for (i=0;i<this.length;i++){
+            this[i] = this[i].toUpperCase();
+        }
+    }
+    function MyFunction06(){
+        var fruits = ["Banana","Orange","Apple","Mango"];
+        fruits.myUcase();
+        var x = document.getElementById("demo05");
+        x.innerHTML = fruits;
+    }
+</script>
+</body>
+</html>
